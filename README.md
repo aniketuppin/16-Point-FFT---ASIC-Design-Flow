@@ -4,4 +4,9 @@ VLSI Mini Project 2022-23
 2) The Synthesis and Simulation is carried out on Quartus Prime (EDA tool) and Questa Sim simulator.
 3) The backend physical design flow is carried out on OpenLane, an open-source tool, and the Skywater130nm technology file is used as the Process design kit(pdk) file.
 4) **Usage**
-The simulation can be carried out by running the testbench "fft_top_tb".This requires 16 input sequences which can be provided in the testbench.Each number is a 32 bit complex number where the most 16 significant bits represent the real value and least 16 bits represent imaginary value, and each 16 bit value is a floating point number in  accordance to the IEEE-754 format.
+5) The simulation can be carried out as follows:
+6)   the random_num.py generates 16 sequences randomly in a text file inputs.txt.
+7)   then int2fp.py converts these sequences into IEEE-754 half-precision format, which is ready to be fed into the testbench.
+8)   when the verilog simulation is carried out by running the testbench "new_tb.v" along with all the verilog modules the output sequence is written to a text file.
+9)   then the float2int.py converts the sequence back into decimal format.
+10)   finally the comparison.py compares the values given out by the RTL as well as the fft values calculated by the inbuilt fft function in python and displays the error margins.
